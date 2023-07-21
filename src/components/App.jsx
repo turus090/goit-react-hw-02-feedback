@@ -10,9 +10,8 @@ class App extends Component {
     bad:0,
   }
   handleChangeOption = (option) => {
-    this.setState({
-      ...this.state,
-      [option]: this.state[option]+1
+    this.setState(prevState => {
+      return prevState[option] = prevState[option] + 1
     })
   }
   render(){
@@ -20,6 +19,7 @@ class App extends Component {
       <>
        <SectionTitle title="Please leave feedback">
           <Feedback
+          options={this.state}
            handleChangeOption = {this.handleChangeOption}
           />
       </SectionTitle>
@@ -35,4 +35,5 @@ class App extends Component {
     }
 
 }
+
 export default App

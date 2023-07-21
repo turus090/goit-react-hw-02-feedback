@@ -1,23 +1,23 @@
 import Button from "./button/Button"
 
 const Feedback = (props) => {
-    const options = ['good','neutral', 'bad']
-    const btnsChange = options.map(btnName=> {
-        return (
+    let Buttons = []
+    for(const optionItem in props.options){ 
+        Buttons.push(
             <Button
-                key={btnName}
-                handleClick={ ()=>props.handleChangeOption(btnName)}
-                text={btnName}
+                key={optionItem}
+                handleClick={ ()=>props.handleChangeOption(optionItem)}
+                text={optionItem}
             />
         )
-    })
+    }
     return (
         <div>
             <div>
-               {btnsChange}
+               {Buttons}
             </div>
         </div>
     )
 }
 
-export default Feedback 
+export default Feedback
