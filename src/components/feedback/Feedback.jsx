@@ -1,23 +1,23 @@
+import propTypes from 'prop-types';
 import Button from "./button/Button"
 
-const Feedback = (props) => {
-    let Buttons = []
-    for(const optionItem in props.options){ 
-        Buttons.push(
-            <Button
-                key={optionItem}
-                handleClick={ ()=>props.handleChangeOption(optionItem)}
-                text={optionItem}
-            />
-        )
-    }
-    return (
-        <div>
+const Feedback = ({options, handleChangeOption}) => {
+    
+        return (
             <div>
-               {Buttons}
+                <div>
+                   {options.map(option =>    <Button
+                    key={option}
+                    handleClick={ ()=>handleChangeOption(option)}
+                    text={option}
+                />)}
+                </div>
             </div>
-        </div>
     )
 }
 
+Feedback.propTypes = {
+    option: propTypes.array,
+    handleChangeOption: propTypes.func,
+}
 export default Feedback

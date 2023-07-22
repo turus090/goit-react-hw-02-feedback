@@ -1,6 +1,11 @@
-const Notification = (props) => {
+import propTypes from 'prop-types'
+const Notification = ({message}) => {
     return (
-        <p>{props.message}</p>
+        <p>{message}</p>
     )
+}
+
+Notification.propTypes = {
+    message: propTypes.string
 }
 export default Notification

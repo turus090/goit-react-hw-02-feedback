@@ -1,8 +1,13 @@
-const Button = (props) => {
+import propTypes from 'prop-types'
+const Button = ({handleClick, text}) => {
  return (
-    <button onClick={props.handleClick}>
-        {props.text}
+    <button onClick={handleClick}>
+        {text}
     </button>)
 }
 
+Button.propTypes = {
+    handleClick: propTypes.func,
+    text: propTypes.string
+}
 export default Button 

@@ -1,20 +1,30 @@
-import Notification from "components/notification/Notification"
+import propTypes from 'prop-types'
 import StaticList from "./StaticList"
-const Statistics = (props) => {
-    const total = props.good + props.neutral + props.bad
+const Statistics = ({positiveFeedback,total,good,neutral,bad}) => {
+  
     
 return (
     <div>
-        {total !== 0 ?
+      
       <StaticList
-      {...props}
-      total={total}
+     positiveFeedback={positiveFeedback}
+     total={total}
+     good={this.good}
+     neutral={this.neutral}
+     bad={this.bad}
 
       />
-        : <Notification message="There is no feedback"/>
-        }
+     
+        
     </div> 
 )
 }
 
+Statistics.propTypes ={
+    positiveFeedback: propTypes.number,
+            total: propTypes.number,
+            good: propTypes.number,
+            neutral: propTypes.number,
+            bad: propTypes.number,
+}
 export default Statistics
